@@ -12,14 +12,14 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.use(cors());
 
-const LogsDeCadastro = restful.model('cadastro', 
+const Logs = restful.model('logs', 
     { 
-        cartao: {type: String, require: true}, 
-        dados: {type: Object, require: true}, 
-        status: {type: String, require: true}, 
-        mensagem: {type: String, require: true}
+        sistema: {type: String, require: true},
+        status: {type: String, require: true},
+        mensagem: {type: String, require: true}, 
+        dados: {type: Object, require: true}
     });
-LogsDeCadastro.methods(['get', 'post', 'put', 'delete']);
-LogsDeCadastro.register(app, '/logs');
+Logs.methods(['get', 'post', 'put', 'delete']);
+Logs.register(app, '/logs');
 
 app.listen(3000);
